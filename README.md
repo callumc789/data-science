@@ -10,4 +10,4 @@ Projects are presented in the form of iPython Notebooks (.ipynb) and Python Scri
 - Personally, my involvement with data science stems from a backgound in mathematics and physics, with focus on statistical analysis & visualization, and applying all of these through Python.
 
 ## Contents
-- [https://github.com/callumc789/data-science/tree/main/classification/random-forest](Random Forest Classifier)
+- [Random Forest Classifier](https://github.com/callumc789/data-science/tree/main/classification/random-forest)
