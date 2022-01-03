@@ -1,6 +1,6 @@
 # Data Science Portfolio
 
-These are some data science projects for academic, self-learning and hobby purposes.
+Here you'll find some data science projects for academic, self-learning and hobby purposes.
 Projects are presented in the form of iPython Notebooks (.ipynb) and Python Scripts (.py), and written from the perspective of guiding the reader through a topic.
 
 ## Overview
