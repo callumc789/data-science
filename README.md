@@ -12,3 +12,4 @@ Projects are presented in iPython Notebooks (.ipynb) and Python Scripts (.py), a
 
 ## Contents
 - [Random Forest Classifier](https://github.com/callumc789/data-science/tree/main/classification/random-forest)
+- [Time Series Forecasting](https://github.com/callumc789/data-science/tree/main/time-series)
