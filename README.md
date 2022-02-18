@@ -11,5 +11,6 @@ Projects are presented in iPython Notebooks (.ipynb) and Python Scripts (.py), a
 - Personally, my involvement with data science stems from a backgound in mathematics and physics, with focus on statistical analysis & visualization, and applying all of these through Python.
 
 ## Contents
-- [Random Forest Classifier](https://github.com/callumc789/data-science/tree/main/classification/random-forest)
-- [Time Series Forecasting](https://github.com/callumc789/data-science/tree/main/time-series)
+- [Classifying the iris dataset with Random Forest](https://github.com/callumc789/data-science/tree/main/classification/random-forest)
+- [Forecasting monthly air passengers with ARIMA](https://github.com/callumc789/data-science/tree/main/time-series/ARIMA)
+- [Forecasting hourly indoor climate with RNN-LSTM](https://github.com/callumc789/data-science/tree/main/time-series/RNN%20LSTM)
