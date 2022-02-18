@@ -3,22 +3,23 @@
 
 
 ### Overview
-With the goal of demonstrating data science techniques, this project focuses on building a RNN-LSTM model to forecast hourly indoor air temperatures over a 24-hour period. By preprocessing the input data and training the model with adam optimization, an RMSE of 0.60 is achieved, improving on a benchmark of 1.20. Those results are visualized and discussed below.
+With the goal of demonstrating data science techniques, this mini-project focuses on building a RNN-LSTM model to forecast hourly indoor air temperatures over a 24-hour period. By preprocessing the input data and training the model with adam optimization, an RMSE of 0.60 is achieved, improving on a benchmark of 1.20. Those results are visualized and discussed below.
 
 ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) **Note:** This mini-project is intended for hobby and educational purposes, so some formatting and design protocols are ignored in the interest of readability. For example, the functions are spread out sequentially through the script and the default arguments are included in the function calls.
 
 
 
 ### Context
-- What this is about
-  - able to control/automate indoor temperatures
-- Why use RNN LSTM (demonstration)
-- Why this is useful (forecasting in general)
+This mini-project uses climate measurements to predict indoor temperatures, thus showing some of the capabilites and application of neural networks in time series forecasting. This is directly useful for climate-sensitive infrastructure such as agricutural greenhouses, but is also indirectly applicable to any time series data that would benefit from predictions to steer decisions and processes.
+
+What is RNN-LSTM and why use it? Here are some links to the IBM learning documentation:
+- [Recurrent Neural Networks](https://www.ibm.com/cloud/learn/recurrent-neural-networks)
+- [Long Short-Term Memory](https://www.ibm.com/cloud/learn/recurrent-neural-networks#:~:text=Long%20short%2Dterm%20memory%20(LSTM)%3A)
 
 
 
 ### Datasets and Inputs
-The data provided for this research consists of CSV log files:
+The data for this mini-project consists of CSV log files:
 - weather.csv - Outdoor weather measurements
   - *time*: Timestamps (Excel format)
   - *Tout*: Outside temperature (°C)
