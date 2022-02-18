@@ -269,7 +269,7 @@ num_features = train_df.shape[1]
 
 # group a stack of layers onto keras model with Sequential()
 # LSTM layer: RNN LSTM algorithm
-# Dense layer: deeply-connected hidden layer
+# Dense layer: deeply-connected hidden layer, transforms the input into a suitable output
 # Reshape layer: reshapes inputs to desired output shape
 model_LSTM = tf.keras.Sequential([
     tf.keras.layers.LSTM(32),
@@ -426,8 +426,3 @@ print('\n Model RMSE: ', model_rmse)
 # window size (# days for training)
 # epochs & patience
 # LSTM layer nodes, model layers, learning rate
-
-
-''' EXTENSION TO Rhair '''
-# Add 'Rhair' to label_cols
-# Use functions with 'Rhair'
