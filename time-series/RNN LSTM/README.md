@@ -1,7 +1,5 @@
 Air-temperature model
 
-- explain data sets (fields, what the CSVs represent, etc.)
-
 - explain model (why formatted this way, etc.)
 - arguments included in functions for clarity for the reader
 - objective (24 hours with basic confidence interval)
@@ -35,13 +33,13 @@ With the goal of demonstrating data science techniques, this project focuses on 
 ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) **Note:** This mini-project is intended for hobby and educational purposes, so some formatting and design protocols are ignored in the interest of readability. For example, the functions are spread out sequentially through the script and the default arguments are included in the function calls.
 
 ### Datasets and Inputs
-The data provided for this research consists of CSV log files, covering:
-- Weather
+The data provided for this research consists of CSV log files:
+- weather.csv - Outdoor weather measurements
   - *time*: Timestamps (Excel format)
   - *Tout*: Outside temperature (°C)
   - *Rhout*: Outside relative humidity (%)
   - *Windsp*: Wind speed (m/s)
-- Indoor climate
+- climate.csv - Indoor climate measurements and hardware setpoints
   - *time*: Timestamps (Excel format)
   - *Tair*: Indoor air temperature (°C)
   - *Rhair*: Indoor relative humidity (%)
@@ -62,7 +60,7 @@ This project uses **Python 3.8** and the following libraries:
 
 
 ### Run
-In a terminal or command window, navigate to the 'modelling' project directory and run the command: python model.py
+In a terminal or command window, navigate to the 'RNN LSTM' project directory and run the command: python model.py
 
 
 ### Preprocessing
@@ -76,12 +74,12 @@ With the aim of making the script easier to test and also flexible enough to run
 - Linearly interpolating null values (across comparatively short timespans) to ensure continous data
 - Converting the excel datetime format to YYYY-MM-DD hh:mm:ss, with a date offset and rounded to the hour.
 - Reviewing the general behaviour of some fields over the first few days of recorded data:
-![plot_features](https://github.com/callumc789/source-assignment-data-science/blob/master/modelling/graphs/01%20plot_features.png)
+![plot_features](https://github.com/callumc789/data-science/blob/main/time-series/RNN%20LSTM/graphs/01%20plot_features.png)
 - Converting dates and times to sine and cosine, to create a cyclical nature for the representation of time:
-![datetime_sin_cos](https://github.com/callumc789/source-assignment-data-science/blob/master/modelling/graphs/02%20datetime_sin_cos.png)
+![datetime_sin_cos](https://github.com/callumc789/data-science/blob/main/time-series/RNN%20LSTM/graphs/02%20datetime_sin_cos.png)
 - Splitting data chronologically into train/validation/test sets
 - Normalizing the values so that the varying scales do not bias results towards certain fields:
-![violin_plot_normed](https://github.com/callumc789/source-assignment-data-science/blob/master/modelling/graphs/03%20violin_plot_normed.png)
+![violin_plot_normed](https://github.com/callumc789/data-science/blob/main/time-series/RNN%20LSTM/graphs/03%20violin_plot_normed.png)
 
 
 
@@ -90,7 +88,7 @@ As an overview, this model works by feeding windows of input and label data into
 
 To predict the indoor temperature, _Tair_, we can isolate the features that are useful indicators (including previous values of _Tair_) to use as the model inputs.
 
-With this approach, the results are shown below over a 24-hour period of hourly predictions, with a confidence interval from P10 to P90. Visually, we can observe that the predicted values lie close to the labels: ![plot_denorm](https://github.com/callumc789/source-assignment-data-science/blob/master/modelling/graphs/04%20plot_denorm.png)
+With this approach, the results are shown below over a 24-hour period of hourly predictions, with a confidence interval from P10 to P90. Visually, we can observe that the predicted values lie close to the labels: ![plot_denorm](https://github.com/callumc789/data-science/blob/main/time-series/RNN%20LSTM/graphs/04%20plot_denorm.png)
 
 This gives an RMSE of 0.60, an improvement from the benchmark of 1.20 from the baseline model (not plotted), indicating that the RNN-LSTM model has improved on the predictive capability of forecasting _Tair_. This benchmark was calculated by simply using the last 24 hours of input data as the label data, i.e. using the previous day as a direct prediction for the following day.
 
@@ -104,8 +102,6 @@ After investigating temperature model research and finding a [paper](https://orc
 
 #### Input Fields
 This model was trained using external weather and indoor climate conditions, as well as actuator statuses (i.e. the vent openings).
-
-The particular fields used are _time_, _Windsp_, _VentLee_, _Ventwind_, _Rhout_, _Rhair_, _Tout_ and _Tair_, which are detailed here: [modelling/data/ReadMe.pdf](https://github.com/callumc789/source-assignment-data-science/blob/master/modelling/data/ReadMe.pdf)
 
 Since the six “GreenhouseClimate.csv” files have the same timespan, one file was chosen arbitrarily to be combined with "Weather.csv".
 
@@ -147,7 +143,3 @@ Some of the shortcomings of this model include:
 - The choice of input fields was based upon brief research and without incorporating domain expertise. Ideally, more time would be given to assessing the relative importance of a range of input features.
 - The input data does not cover a whole year, so the model is currently unaware of year-round seasonal trends. However, it could feasibly identify this with the current script, since there are also sin/cos fields for the day-of-the-year number.
 - Precipitation is not factored into the inputs, which could potentially affect wind, outdoor humidity and outdoor temperature.
-
-
-### Acknowledgements
-I wish to extend my thanks to those who have set up and described the task, as well as to those who may review it. And also thank you for providing this opportunity to dive into some of the problems that Source.ag aims to solve.
