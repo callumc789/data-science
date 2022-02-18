@@ -1,8 +1,5 @@
 '''
-Source.ag - Data Science Assignment
-CALLUM CANNADINE
-
-Using a RNN LSTM model to forecast indoor greenhouse climate variables over 24 hours.
+Using a RNN LSTM model to forecast climate variables over 24 hours.
 '''
 
 
@@ -30,10 +27,10 @@ def merge_select(df1, df2, merge_col='', cols=[]):
     return df
 
 
-weather_path = 'data/Weather.csv'
-greenhouse_path = 'data/AICU/GreenhouseClimate.csv'
+weather_path = 'data/weather.csv'
+climate_path = 'data/climate.csv'
 df_w = load_csv(weather_path)
-df_g = load_csv(greenhouse_path)
+df_g = load_csv(climate_path)
 
 # take columns we believe to affect temperature
 cols = ['time', 'Windsp', 'VentLee', 'Ventwind', 'Rhout', 'Rhair', 'Tout', 'Tair']
